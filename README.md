@@ -28,7 +28,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+![](https://github.com/jdimonte/Flix/blob/main/flix.gif)
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
