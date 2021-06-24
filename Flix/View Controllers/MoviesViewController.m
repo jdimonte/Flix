@@ -25,8 +25,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self checkNetworkConnection];
-    
     [self.activityIndicator startAnimating];
     
     self.tableView.dataSource = self;
@@ -48,6 +46,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+               [self checkNetworkConnection];
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -55,10 +54,7 @@
                NSLog(@"%@", dataDictionary);
                
                self.movies = dataDictionary[@"results"];
-               NSLog(@"%@", self.movies);
-               for (NSDictionary *movie in self.movies) {
-                   NSLog(@"%@", movie[@"title"]);
-               }
+ 
                [self.tableView reloadData];
            }
         [self.refreshControl endRefreshing];
@@ -72,7 +68,7 @@
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-        [self fetchMovies];
+        [self viewDidLoad];
     }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
@@ -91,12 +87,9 @@
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
-    NSLog(@"%@", movie[@"poster_path"]);
 
-    
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
-    NSLog(@"%@",posterURLString);
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
     NSURL *posterURL =[NSURL URLWithString:fullPosterURLString];
     cell.posterView.image = nil;
@@ -117,7 +110,6 @@
     
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
-    NSLog(@"Tappping on a movie!");
 }
 
 @end
