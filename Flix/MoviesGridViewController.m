@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *filteredMovies;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -24,6 +26,11 @@
     // Do any additional setup after loading the view.
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.searchBar.delegate = self;
+    
+    self.searchBar.searchTextField.backgroundColor = [UIColor blackColor];
+    self.searchBar.searchTextField.layer.borderWidth = 3;
+    self.searchBar.searchTextField.tintColor = [UIColor whiteColor];
     
     [self fetchMovies];
     
@@ -36,6 +43,8 @@
     CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
     CGFloat itemHeight = itemWidth * 2;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+
+    self.filteredMovies = self.movies;
 }
 
 - (void)fetchMovies {
@@ -66,7 +75,11 @@
     // Pass the selected object to the new view controller.
     UICollectionView *tappedCell = sender;
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+    
     NSDictionary *movie = self.movies[indexPath.row];
+    if(self.filteredMovies){
+        movie = self.filteredMovies[indexPath.row];
+    }
     
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
@@ -76,6 +89,10 @@
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
     NSDictionary *movie = self.movies[indexPath.item];
+    if(self.filteredMovies){
+        movie = self.filteredMovies[indexPath.item];
+    }
+    
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
@@ -87,7 +104,29 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.movies.count;
+    if(self.filteredMovies){
+        return self.filteredMovies.count;
+    }
+    else{
+        return self.movies.count;
+    }
+}
+
+//search bar function
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@)", searchText];
+        self.filteredMovies = [self.movies filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredMovies);
+        
+    }
+    else {
+        self.filteredMovies = self.movies;
+    }
+    
+    [self.collectionView reloadData];
 }
 
 @end
