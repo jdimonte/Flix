@@ -163,6 +163,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PV4-AL-gxN">
                                         <rect key="frame" x="8" y="329" width="122" height="193"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="OQ7-AV-6mO" appends="YES" id="BF3-g7-CWn"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulL-LY-cSD">
                                         <rect key="frame" x="18" y="552" width="356" height="33"/>
@@ -178,10 +182,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdp-LT-spM">
-                                        <rect key="frame" x="8" y="329" width="122" height="193"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="SdI-Qb-4Hp"/>
@@ -201,13 +201,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mN-VF-wun" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OQ7-AV-6mO">
+                    <connections>
+                        <action selector="posterTapped:" destination="7Br-We-Izh" id="xro-JN-PD8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="856.52173913043487" y="1593.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Trailer View Controller-->
         <scene sceneID="0T9-4e-v4K">
             <objects>
-                <viewController id="rfa-aq-S8Q" sceneMemberID="viewController">
+                <viewController id="rfa-aq-S8Q" customClass="TrailerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aks-Hm-2bS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,6 +226,9 @@
                         <viewLayoutGuide key="safeArea" id="TQK-bz-t9W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTrailer" destination="Pg0-6Z-icW" id="X70-1B-oBn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGj-jD-xf8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

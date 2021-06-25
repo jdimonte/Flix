@@ -2,7 +2,7 @@
 
 Flix is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 7.15 hours spent in total
+Time spent: 11 hours spent in total
 
 ## User Stories
 
@@ -18,6 +18,8 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 - [ ] User can tap a poster in the collection view to see a detail screen of that movie
+- [ ] User can search for a movie.
+- [ ] Customize the navigation bar.
 
 The following **additional** features are implemented:
 

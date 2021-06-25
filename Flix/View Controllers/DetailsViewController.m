@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "TrailerViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
@@ -37,16 +38,42 @@
     
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
+    
+    
+    //gesture
+    // Here we use the method didPan(sender:), which we defined in the previous step, as the action.
+      UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+      
+      // Optionally set the number of required taps, e.g., 2 for a double click
+      tapGestureRecognizer.numberOfTapsRequired = 2;
+      
+      // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+      [self.view setUserInteractionEnabled:YES];
+      [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+- (IBAction)posterTapped:(UITapGestureRecognizer *)sender {
+    //code
+}
+- (IBAction)didTap:(UITapGestureRecognizer *)sender {
+    CGPoint location = [sender locationInView:self.view];
+   // User tapped at the point above. Do something with that if you want.
+    NSLog(@"Poster Tapped");
+    
+    [self performSegueWithIdentifier:@"displayTrailer" sender:nil];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSDictionary *movie = self.movie;
+    
+    TrailerViewController *trailerViewController = [segue destinationViewController];
+    
+    trailerViewController.movie = movie;
+    
 }
-*/
 
 @end
