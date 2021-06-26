@@ -32,7 +32,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5C-Fy-WaS">
                                                     <rect key="frame" x="10" y="18" width="92" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.71477020250000001" green="1" blue="0.87291459059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8A-DP-1eF">
                                                     <rect key="frame" x="120" y="64" width="274" height="82"/>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="38" y="865"/>
         </scene>
-        <!--Movies Grid View Controller-->
+        <!--Filter Movies-->
         <scene sceneID="CVr-Kl-3QU">
             <objects>
                 <viewController id="BXm-cL-DKH" customClass="MoviesGridViewController" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                         <viewLayoutGuide key="safeArea" id="rQK-ve-3xI"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pWn-Fu-Gro"/>
+                    <navigationItem key="navigationItem" title="Filter Movies" id="pWn-Fu-Gro"/>
                     <connections>
                         <outlet property="collectionView" destination="osn-fF-xZW" id="4y6-qb-cFr"/>
                         <outlet property="searchBar" destination="sbr-yG-pxE" id="1xN-Dm-BUY"/>
@@ -241,7 +241,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bgW-MY-uLw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="kP1-di-53C" kind="relationship" relationship="viewControllers" id="0D1-62-73h"/>
@@ -261,6 +263,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VVd-Ce-zux">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -279,6 +285,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KNH-Rb-F8L">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BXm-cL-DKH" kind="relationship" relationship="rootViewController" id="oZH-4I-H3i"/>
@@ -290,7 +300,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Js-oI-dnI"/>
+        <segue reference="12Q-Gb-Kbw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>

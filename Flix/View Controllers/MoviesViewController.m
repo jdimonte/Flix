@@ -118,6 +118,7 @@
                                         // do something for the failure condition
                                     }];
     cell.posterView.image = nil;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [cell.posterView setImageWithURL:url];
     

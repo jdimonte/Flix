@@ -123,6 +123,10 @@
                                         // do something for the failure condition
                                     }];
     cell.posterView.image = nil;
+    //Set a custom selectedBackgroundView
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = UIColor.blackColor;
+    cell.selectedBackgroundView = backgroundView;
     
     [cell.posterView setImageWithURL:url];
     

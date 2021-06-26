@@ -2,7 +2,7 @@
 
 Flix is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 11.25 hours spent in total
+Time spent: 12 hours spent in total
 
 ## User Stories
 
@@ -17,27 +17,31 @@ The following **required** functionality is complete:
 - [ ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 The following **optional** features are implemented:
-- [ ] User can tap a poster in the collection view to see a detail screen of that movie
+- [ ] User can view a detail screen of any movie
 - [ ] User can search for a movie.
 - [ ] All images fade in as they are loading.
+- [ ] User can view the large movie poster by tapping on a cell.
+- [ ] Customize the selection effect of the cell.
 - [ ] Customize the navigation bar.
+- [ ] Customize the UI.
 
 The following **additional** features are implemented:
+- [ ] User can tap a poster in the details view to watch the trailer of the movie
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.I want to see how my peers feel about added the release date of the movie and a number of star to show how popular it is.
-2.Another idea I have is to vary the size of the images on Grid View by how popular the movie is.
+1. I am interested in switching the display of the movies in the table view to switch between "text on the right and image on the left" and "image on the right and text on the left"
+2.I am interested in adding another place in the navigation bar for the user to have their selected movies they want to watch.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![](https://github.com/jdimonte/Flix/blob/main/flix.gif)
+![](https://github.com/jdimonte/Flix/blob/main/flix_new.gif)
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I ran into challenges with casting integers as strings, when I was trying to take the API call, use the id of the movie, and create the movie trailers youtube url. I am also still looking for certain vistual features, like the color of the "go back" arrow and text, along with the boarder size of the search bar.
 
 ## Credits
 
