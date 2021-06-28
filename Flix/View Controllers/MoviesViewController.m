@@ -37,7 +37,19 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.tableView addSubview:self.refreshControl];
     
-    [self.activityIndicator stopAnimating];
+    //[self scheduledTimerWithTimeInterval];
+    
+//    [NSTimer scheduledTimerWithTimeInterval:2.0
+//        target:self.activityIndicator
+//        selector:@selector(targetMethod: stopAnimating:)
+//        repeats:NO];
+    
+//    NSTimer *t = [NSTimer timerWithTimeInterval:2 repeats:NO block:self.activityIndicator stopAnimating];
+//
+//    + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval
+//                                        repeats:(BOOL)repeats
+//                                          block:(void (^)(NSTimer *timer))block;
+    
 }
 - (void)fetchMovies {
     //[self.activityIndicator startAnimating];
@@ -59,8 +71,8 @@
                [self.tableView reloadData];
            }
         [self.refreshControl endRefreshing];
+        [self.activityIndicator stopAnimating];
        }];
-    //[self.activityIndicator stopAnimating];
     [task resume];
 }
 
