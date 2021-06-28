@@ -39,9 +39,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![250](https://github.com/jdimonte/Flix/blob/main/first.gif)
-![250](https://github.com/jdimonte/Flix/blob/main/second.gif)
-![250](https://github.com/jdimonte/Flix/blob/main/third.gif)
+
+
+<img src="https://github.com/jdimonte/Flix/blob/main/first.gif" width="250">
+<img src="https://github.com/jdimonte/Flix/blob/main/second.gif" width="250">
+<img src="https://github.com/jdimonte/Flix/blob/main/third.gif" width="250">
+
+The first GIF: shows the activity indicator showing up before the API call is finished, and an error when the user is not connected to wifi. The second GIF: shows the reload/refresh feature, and the table view leading to a detailed view of each movie. The third GIF: shows the collection of movies, along with a search bar and the trailer of the movie when the user clicks on the poster image.
+
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
