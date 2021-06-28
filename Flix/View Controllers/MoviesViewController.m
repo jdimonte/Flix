@@ -40,6 +40,7 @@
     [self.activityIndicator stopAnimating];
 }
 - (void)fetchMovies {
+    //[self.activityIndicator startAnimating];
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0b8f1ca665ec172de7dd6db70cbf26ec"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
@@ -59,6 +60,7 @@
            }
         [self.refreshControl endRefreshing];
        }];
+    //[self.activityIndicator stopAnimating];
     [task resume];
 }
 
